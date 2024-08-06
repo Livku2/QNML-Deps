@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 15
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
@@ -23,51 +23,52 @@
 
 # virtual methods
 .method public dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-    .registers 4
+    .locals 2
 
-    .line 154
+    .line 136
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v0
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_e
+    if-ne v0, v1, :cond_0
 
-    .line 155
-    iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
+    .line 137
+    iget-object p0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
 
-    invoke-virtual {v0, p1}, Lcom/unity3d/player/UnityPlayer;->injectEvent(Landroid/view/InputEvent;)Z
+    invoke-virtual {p0, p1}, Lcom/unity3d/player/UnityPlayer;->injectEvent(Landroid/view/InputEvent;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 
-    .line 156
-    :cond_e
+    .line 138
+    :cond_0
     invoke-super {p0, p1}, Landroid/app/Activity;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method
 
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .registers 3
+    .locals 0
 
-    .line 139
+    .line 121
     invoke-super {p0, p1}, Landroid/app/Activity;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    .line 140
-    iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
+    .line 122
+    iget-object p0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
 
-    invoke-virtual {v0, p1}, Lcom/unity3d/player/UnityPlayer;->configurationChanged(Landroid/content/res/Configuration;)V
+    invoke-virtual {p0, p1}, Lcom/unity3d/player/UnityPlayer;->configurationChanged(Landroid/content/res/Configuration;)V
 
     return-void
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .registers 4
+    .locals 2
+	invoke-static {}, Lcom/loadLib/libLoader;->loadLib()V
 
     const/4 v0, 0x1
 
@@ -110,15 +111,15 @@
     invoke-virtual {p0, p1}, Lcom/unity3d/player/UnityPlayerActivity;->setContentView(Landroid/view/View;)V
 
     .line 42
-    iget-object p1, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
+    iget-object p0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
 
-    invoke-virtual {p1}, Lcom/unity3d/player/UnityPlayer;->requestFocus()Z
+    invoke-virtual {p0}, Lcom/unity3d/player/UnityPlayer;->requestFocus()Z
 
     return-void
 .end method
 
 .method protected onDestroy()V
-    .registers 2
+    .locals 1
 
     .line 67
     iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
@@ -132,217 +133,168 @@
 .end method
 
 .method public onGenericMotionEvent(Landroid/view/MotionEvent;)Z
-    .registers 3
+    .locals 0
 
-    .line 163
-    iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
+    .line 145
+    iget-object p0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
 
-    invoke-virtual {v0, p1}, Lcom/unity3d/player/UnityPlayer;->injectEvent(Landroid/view/InputEvent;)Z
+    invoke-virtual {p0, p1}, Lcom/unity3d/player/UnityPlayer;->onGenericMotionEvent(Landroid/view/MotionEvent;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method
 
 .method public onKeyDown(ILandroid/view/KeyEvent;)Z
-    .registers 3
+    .locals 0
 
-    .line 161
-    iget-object p1, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
+    .line 143
+    iget-object p0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
 
-    invoke-virtual {p1, p2}, Lcom/unity3d/player/UnityPlayer;->injectEvent(Landroid/view/InputEvent;)Z
+    invoke-virtual {p0, p1, p2}, Lcom/unity3d/player/UnityPlayer;->onKeyDown(ILandroid/view/KeyEvent;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method
 
 .method public onKeyUp(ILandroid/view/KeyEvent;)Z
-    .registers 3
+    .locals 0
 
-    .line 160
-    iget-object p1, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
+    .line 142
+    iget-object p0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
 
-    invoke-virtual {p1, p2}, Lcom/unity3d/player/UnityPlayer;->injectEvent(Landroid/view/InputEvent;)Z
+    invoke-virtual {p0, p1, p2}, Lcom/unity3d/player/UnityPlayer;->onKeyUp(ILandroid/view/KeyEvent;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method
 
 .method public onLowMemory()V
-    .registers 2
+    .locals 0
 
-    .line 122
+    .line 104
     invoke-super {p0}, Landroid/app/Activity;->onLowMemory()V
 
-    .line 123
-    iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
+    .line 105
+    iget-object p0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
 
-    invoke-virtual {v0}, Lcom/unity3d/player/UnityPlayer;->lowMemory()V
+    invoke-virtual {p0}, Lcom/unity3d/player/UnityPlayer;->lowMemory()V
 
     return-void
 .end method
 
 .method protected onNewIntent(Landroid/content/Intent;)V
-    .registers 3
+    .locals 0
 
     .line 60
     invoke-virtual {p0, p1}, Lcom/unity3d/player/UnityPlayerActivity;->setIntent(Landroid/content/Intent;)V
 
     .line 61
-    iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
+    iget-object p0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
 
-    invoke-virtual {v0, p1}, Lcom/unity3d/player/UnityPlayer;->newIntent(Landroid/content/Intent;)V
+    invoke-virtual {p0, p1}, Lcom/unity3d/player/UnityPlayer;->newIntent(Landroid/content/Intent;)V
 
     return-void
 .end method
 
 .method protected onPause()V
-    .registers 2
+    .locals 0
 
-    .line 98
+    .line 90
     invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
-    .line 100
-    invoke-static {p0}, Lcom/unity3d/player/MultiWindowSupport;->saveMultiWindowMode(Landroid/app/Activity;)V
+    .line 91
+    iget-object p0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
 
-    .line 102
-    invoke-static {p0}, Lcom/unity3d/player/MultiWindowSupport;->getAllowResizableWindow(Landroid/app/Activity;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_d
-
-    return-void
-
-    .line 105
-    :cond_d
-    iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
-
-    invoke-virtual {v0}, Lcom/unity3d/player/UnityPlayer;->pause()V
+    invoke-virtual {p0}, Lcom/unity3d/player/UnityPlayer;->onPause()V
 
     return-void
 .end method
 
 .method protected onResume()V
-    .registers 2
+    .locals 0
 
-    .line 111
+    .line 97
     invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
-    .line 113
-    invoke-static {p0}, Lcom/unity3d/player/MultiWindowSupport;->getAllowResizableWindow(Landroid/app/Activity;)Z
+    .line 98
+    iget-object p0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
 
-    move-result v0
-
-    if-eqz v0, :cond_10
-
-    invoke-static {p0}, Lcom/unity3d/player/MultiWindowSupport;->isMultiWindowModeChangedToTrue(Landroid/app/Activity;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_10
-
-    return-void
-
-    .line 116
-    :cond_10
-    iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
-
-    invoke-virtual {v0}, Lcom/unity3d/player/UnityPlayer;->resume()V
+    invoke-virtual {p0}, Lcom/unity3d/player/UnityPlayer;->onResume()V
 
     return-void
 .end method
 
 .method protected onStart()V
-    .registers 2
+    .locals 0
 
-    .line 87
+    .line 83
     invoke-super {p0}, Landroid/app/Activity;->onStart()V
 
-    .line 89
-    invoke-static {p0}, Lcom/unity3d/player/MultiWindowSupport;->getAllowResizableWindow(Landroid/app/Activity;)Z
+    .line 84
+    iget-object p0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
 
-    move-result v0
-
-    if-nez v0, :cond_a
-
-    return-void
-
-    .line 92
-    :cond_a
-    iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
-
-    invoke-virtual {v0}, Lcom/unity3d/player/UnityPlayer;->resume()V
+    invoke-virtual {p0}, Lcom/unity3d/player/UnityPlayer;->onStart()V
 
     return-void
 .end method
 
 .method protected onStop()V
-    .registers 2
+    .locals 0
 
     .line 77
     invoke-super {p0}, Landroid/app/Activity;->onStop()V
 
-    .line 79
-    invoke-static {p0}, Lcom/unity3d/player/MultiWindowSupport;->getAllowResizableWindow(Landroid/app/Activity;)Z
+    .line 78
+    iget-object p0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
 
-    move-result v0
-
-    if-nez v0, :cond_a
-
-    return-void
-
-    .line 82
-    :cond_a
-    iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
-
-    invoke-virtual {v0}, Lcom/unity3d/player/UnityPlayer;->pause()V
+    invoke-virtual {p0}, Lcom/unity3d/player/UnityPlayer;->onStop()V
 
     return-void
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .registers 3
+    .locals 0
 
-    .line 162
-    iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
+    .line 144
+    iget-object p0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
 
-    invoke-virtual {v0, p1}, Lcom/unity3d/player/UnityPlayer;->injectEvent(Landroid/view/InputEvent;)Z
+    invoke-virtual {p0, p1}, Lcom/unity3d/player/UnityPlayer;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method
 
 .method public onTrimMemory(I)V
-    .registers 3
+    .locals 1
 
-    .line 129
+    .line 111
     invoke-super {p0, p1}, Landroid/app/Activity;->onTrimMemory(I)V
 
     const/16 v0, 0xf
 
-    if-ne p1, v0, :cond_c
+    if-ne p1, v0, :cond_0
 
-    .line 132
-    iget-object p1, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
+    .line 114
+    iget-object p0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
 
-    invoke-virtual {p1}, Lcom/unity3d/player/UnityPlayer;->lowMemory()V
+    invoke-virtual {p0}, Lcom/unity3d/player/UnityPlayer;->lowMemory()V
 
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method public onUnityPlayerQuitted()V
-    .registers 1
+    .locals 0
 
     return-void
 .end method
 
 .method public onUnityPlayerUnloaded()V
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x1
 
@@ -353,21 +305,21 @@
 .end method
 
 .method public onWindowFocusChanged(Z)V
-    .registers 3
+    .locals 0
 
-    .line 146
+    .line 128
     invoke-super {p0, p1}, Landroid/app/Activity;->onWindowFocusChanged(Z)V
 
-    .line 147
-    iget-object v0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
+    .line 129
+    iget-object p0, p0, Lcom/unity3d/player/UnityPlayerActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
 
-    invoke-virtual {v0, p1}, Lcom/unity3d/player/UnityPlayer;->windowFocusChanged(Z)V
+    invoke-virtual {p0, p1}, Lcom/unity3d/player/UnityPlayer;->windowFocusChanged(Z)V
 
     return-void
 .end method
 
 .method protected updateUnityCommandLineArguments(Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
 
     return-object p1
 .end method
